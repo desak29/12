@@ -1,0 +1,16 @@
+
+      (function(){
+        olark.extend('Sounds');
+
+
+        var isNewVersion = olark._ && olark._.versions && (olark._.versions.follow || olark._.versions.popout)
+        if(isNewVersion) {
+          olark._.finish({"Sounds":{"enabled":true},"system":{"show_popout":0,"hashchange_events_trigger_page_change":0,"allow_change_colors":true,"email_body_error_text":"You must complete all fields and specify a valid email address","disable_default_visitor_information":0,"operator_has_stopped_typing_text":"has stopped typing","require_offline_phone":0,"offline_message":"Let us know what's on your mind - it's super important to us!","hide_not_available":0,"show_pre_chat":0,"allow_change_width":true,"allow_change_height":true,"habla_offline_sent_text":"Thanks for your message!  We'll get back to you shortly.","allow_mobile_boot":0,"habla_name_input_text":"\u003Cclick here\u003E and type your Name","say_text":"Type here and hit \u003Center\u003E to chat","allowed_domains":"","start_expanded":0,"habla_offline_email_text":"\u003Cclick here\u003E and type your Email","bottom_margin":0,"right_margin":20,"disable_extra_br":true,"inline_css_url":"static.olark.com/css/3/f/3f8420f61199875716260002f9987866.css","close_hides_window":0,"popout_css_url":"static.olark.com/css/a/1/a1ac8c2bd041f639c234d61d7f0ba4aa.css","habla_offline_body_text":"We're not around but we still want to hear from you!  Leave us a note:","expandOnMessageReceived":0,"expandOnFirstMessageReceived":1,"not_available_text":"Feedback, questions, ideas?","welcome_msg":"We'd love to chat with you!","top_margin":0,"disable_width":true,"start_hidden":0,"habla_offline_phone_text":"\u003Cclick here\u003E and type your Phone","ended_chat_message":"This chat has ended, start typing below if you need anything else!","offline_msg_mode":1,"disable_offline_messaging_fallback":true,"inline_css_url_quirks":"static.olark.com/css/3/9/39e95022e5a58a6afe67229b868ab13a.css","inline_css_url_ie":"static.olark.com/css/8/d/8dad9cfdd504930f6e6cf2b6e2088f23.css","height":150,"in_chat_text":"Now Chatting","habla_offline_submit_value":"Send","operator_is_typing_text":"is typing...","before_chat_text":"Have feedback? We're online!","left_margin":20,"disableJSStyles":false,"corner_position":"BR","right_to_left":false,"width":250,"show_in_buddy_list":"all","hkey":"PHNwYW4gc3R5bGU9ImRpc3BsYXk6bm9uZSI+PGEgaWQ9ImhibGluazkiPjwvYT5odHRwOi8vd3d3Lm9sYXJrLmNvbTwvc3Bhbj48YSBocmVmPSJodHRwOi8vd3d3Lm9sYXJrLmNvbS8/cmlkPTMwNzItOTQ0LTEwLTgwMzMmYW1wO2J1c2luZXNzPTEmYW1wO3V0bV9tZWRpdW09d2lkZ2V0JmFtcDt1dG1fY2FtcGFpZ249ZnJlZV9idXNpbmVzc19jaGF0JmFtcDt1dG1fc291cmNlPTMwNzItOTQ0LTEwLTgwMzMiIGlkPSJoYmxpbms5OSIgdGFyZ2V0PSJfYmxhbmsiPkZyZWUgT2xhcmsgQ2hhdCBmb3IgQnVzaW5lc3M8L2E+","md5":"12f0c6aa313b21f55ac7f2bafc842151","site_id":"3072-944-10-8033","template":"azul","operators":{"656224":{"avatar_url":"//static.olark.com/imageservice/56fcd3e2356fa4564086c882d22c2c83.png"}}},"invalidate_cache":{}});
+        }else{
+          olark.configure(function(conf){
+            conf.system.site_id="3072-944-10-8033";
+          });
+          olark._.finish();
+        }
+      })();
+    
