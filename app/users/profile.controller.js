@@ -25,3 +25,6 @@
 //  })}
 //
 
+angular.module("kyChatApp").controller("ProfileCtrl",["$state","md5","auth","profile",function(a,b,c,d){var e=this;e.profile=d,e.updateProfile=function(){e.profile.emailHash=b.createHash(c.password.email),e.profile.$save().then(function(){a.go("channels")})}}])
+
+//now allows for the creation of channels but script is still being improved need new feautures
