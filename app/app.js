@@ -29,6 +29,7 @@ angular.module("angularfireSlackApp",["firebase","angular-md5","ui.router"])
           {return b.$requireAuth().then(function(b){return a.getProfile(b.uid).$loaded()})}]}})
     // add channels state
     .state("channels",
+      //sets the template to channels
       {url:"/channels",templateUrl:"channels/index.html",controller:"ChannelsCtrl as channelsCtrl",resolve:
       {channels:["Channels",function(a){return a.$loaded()}],
         profile:["$state","Auth","Users",function(a,b,c)
@@ -39,10 +40,12 @@ angular.module("angularfireSlackApp",["firebase","angular-md5","ui.router"])
             .then(function(b)
         {return b.displayName?b:void a.go("profile")})},
             function(b){a.go("home")})}]}})
+    //created a new state of channels.create*
     .state("channels.create",
       {url:"/create",
         templateUrl:"channels/create.html",
         controller:"ChannelsCtrl as channelsCtrl"})
+    //created a new state of channels.messages *
     .state("channels.messages",
       {url:"/{channelId}/messages",
         templateUrl:"channels/messages.html",
@@ -62,6 +65,7 @@ angular.module("angularfireSlackApp",["firebase","angular-md5","ui.router"])
             .then(function(){return"@"+b
                 .getDisplayName(a.uid)})}]}}),b.otherwise("/")}])
   .constant("FirebaseUrl","https://kychat.firebaseio.com/")
+
   //finish main funciton app angular fire slack app.
   ,angular.module("angularfireSlackApp")
   .controller("AuthCtrl",["Auth","$state",function(a,b)
@@ -108,6 +112,7 @@ angular.module("angularfireSlackApp",["firebase","angular-md5","ui.router"])
         .profile.$save().then(function()
         {
           b.$unauth(),a.go("home")})}
+        //add control for new channels into channels control
         ,f.newChannel={name:""},f.createChannel=function()
       {f.channels.$add(f.newChannel).then(function(b){a.go("channels.messages",
         {channelId:b.key()})})}}]),angular.module("angularfireSlackApp")
@@ -115,10 +120,11 @@ angular.module("angularfireSlackApp",["firebase","angular-md5","ui.router"])
     ["$firebaseArray","FirebaseUrl",function(a,b)
     {var c=new Firebase(b+"channels"),d=a(c);return d}]),
 
-  //angular module for controlling profiles
+  //angular module for message control modelled on channels
   angular.module("angularfireSlackApp")
     .controller("MessagesCtrl",["profile","channelName","messages",function(a,b,c)
     {var d=this;d.messages=c,d.channelName=b,d.message="",d.sendMessage=function()
+    //create a function for send messages to $add a message to previous messages Really cool.
     {d.message.length>0&&d.messages
       .$add({
         uid:a.$id,body:d.message,timestamp:Firebase.ServerValue.TIMESTAMP
@@ -126,7 +132,7 @@ angular.module("angularfireSlackApp",["firebase","angular-md5","ui.router"])
       .then(function()
       {d.message=""
       })}}]),
-  //MAKE a module that usesthe cmessage system within the channels
+  //Makes a modules that creates a service for retreiving messages
   angular.module("angularfireSlackApp")
     .factory("Messages",
       ["$firebaseArray","FirebaseUrl",function(a,b)
