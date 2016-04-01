@@ -3,32 +3,40 @@
   <div class="sidebar">
 
     <div class="slack-name">
-      <h2>kyChat</h2>
+      <h2>kyChat </h2>
     </div>
-
     <div class="channel-list">
-      <div class="list-head">Channels</div>
 
-<!--created the channels listing in app/channels/index.html after the channel listnead divider therefore the channels should list below channels-->
-    <div class="channel" ng-repeat="channel in channelsCtrl.channels">
-      <!--places name of channel into side bar -->
-      <a ui-sref="channels.message({channelId: channel.$id})"># {{channel.name}}</a>
+      <div class="list-head">Channels</div>
+      <div class="channel" ng-repeat="channel in channelsCtrl.channels">
+        <a ui-sref="channels.messages({channelId: channel.$id})" ui-sref-active="selected"># {{ channel.name }}</a>
+      </div>
     </div>
+
+    <!--<div class="channel-list">-->
+      <!--<div class="list-head">Channels</div>-->
+
+<!--&lt;!&ndash;created the channels listing in app/channels/index.html after the channel listnead divider therefore the channels should list below channels&ndash;&gt;-->
+    <!--<div class="channel" ng-repeat="channel in channelsCtrl.channels">-->
+      <!--&lt;!&ndash;places name of channel into side bar &ndash;&gt;-->
+      <!--<a ui-sref="channels.message({channelId: channel.$id}})"># {{channel.name}}</a>-->
+    <!--</div>-->
       <!--add channels to bottom of channel-list -->
     <div class="channel create">
-      <a ui-sref="channels.create">+create KYchannel</a>
+    <a ui-sref="channels.create">+ create channel</a>
+  </div>
+
+    <div class="list-head">Direct Messages</div>
+    <div class="channel" ng-repeat="user in channelsCtrl.users">
+      <a ng-if="user.$id !== channelsCtrl.profile.$id" ui-sref="channels.direct({uid: user.$id})" ui-sref-active="selected">
+        <span class="presence" ng-class="{online: user.online}"></span>
+        {{ user.displayName }}
+      </a>
+
+
+
     </div>
 
-      <div class="list-head">Direct Messages</div>
-      <!--updated the sidebar to have to list all users and links to their conversation-->
-      <div class="channel" ng-repeat="user in channelsCtrl.users">
-        <!--add a presence icon for current users display name -->
-        <a ng-if="user.$id !==channelsCtrl.profile.$id" ui-sref="channels.direct({uid: user.$id})" ui-sref-active="selected">
-          <span class="presence" ng-class="{online: user.online}"></span>
-          {{user.displayName}}
-        </a>
-      </div>
-      </div>
     <div class="my-info">
       <img class="user-pic" ng-src="{{ channelsCtrl.getGravatar(channelsCtrl.profile.$id) }}" />
       <div class="user-info">
