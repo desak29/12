@@ -1,0 +1,2 @@
+angular.module("kyChatApp").controller("ChannelsCtrl",["$state","Auth","Users","profile","channels",
+  function(a,b,c,d,e){var f=this;c.setOnline(d.$id),f.profile=d,f.channels=e,f.users=c.all,f.getDisplayName=c.getDisplayName,f.getGravatar=c.getGravatar,f.logout=function(){f.profile.online=null,f.profile.$save().then(function(){b.$unauth(),a.go("home")})},f.newChannel={name:""},f.createChannel=function(){f.channels.$add(f.newChannel).then(function(b){a.go("channels.messages",{channelId:b.key()})})}}])

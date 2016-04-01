@@ -1,58 +1,53 @@
+
 <!doctype html>
-<html class="no-js" ng-app="angularfireSlackApp">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";
-  [ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate)
-  {display:none !important;}ng\:form{display:block;}
-  .ng-animate-shim{visibility:hidden;}
-  .ng-anchor{position:absolute;}</style>
-    <meta charset="utf-8">
-    <title>kyChatApp</title> <meta name="description" content="">
-      <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <title>kySlackApp</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+</head>
+<body ng-app="angularfireSlackApp">
+<!--[if lt IE 7]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
 
-      <link rel="stylesheet" href="styles/vendor.css">
-      <link rel="stylesheet" href="styles/main.css">
-      </head><body class="ng-scope" ng-app="angularfireSlackApp"> <!--[if lt IE 7]>
-  <p class="browsehappy">You are using an
-    <strong>outdated</strong> browser. Please
-    <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]--> <!-- uiView: undefined --><ui-view class="ng-scope">
-    <div class="page-wrapper ng-scope">
-      <div class="page-header">
-      <h1>
-    <img class="logo-img" src="images/logo.jpg"> Welcome to kyChat</h1>
-      </div>
-      <p class="text-center">
-        <a href="#/login" ui-sref="login" class="btn btn-lg btn-default">Login</a> or
-    <a href="#/register" ui-sref="register" class="btn btn-lg btn-primary">Register</a>
-      </p>
-      <p>KYchat is an open source <a href="https://slack.com/" target="_blank">Slack</a> clone built using <a href="https://www.firebase.com/" target="_blank">Firebase</a>
-        's
-        <a href="https://www.firebase.com/docs/web/libraries/angular/" target="_blank">AngularFire</a>
-        library. Learn how to create this app from scratch with the
-        <a href="https://thinkster.io/angularfire-slack-tutorial/" target="_blank">Thinkster.io tutorial</a>!
-      </p>
-    </div></ui-view>
+<ui-view></ui-view>
 
 
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+<script>
+  !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+      (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+    r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+  }(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-XXXXX-X');
+  ga('send', 'pageview');
+</script>
 
-  <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="bower_components/firebase/firebase.js"></script>
-    <script src="bower_components/angularfire/dist/angularfire.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/angular-md5/angular-md5.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/firebase/firebase.js"></script>
+<script src="bower_components/angularfire/dist/angularfire.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/angular-md5/angular-md5.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
 
-    <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="app.js"></script>
->
-
-    <!-- endbuild -->
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="app.js"></script>
+<!-- endbuild -->
 </body>
 </html>

@@ -1,0 +1,30 @@
+
+<!--created template for messages -->
+<div class="header">
+  <h1>{{messageCtrl.channel.Name}}</h1>
+</div>
+<div class="message-wrap" ng-repeat="message in messagesCtrl.messages">
+  <img class="user-pic" ng-src="{{channelsCtrl.getGravatar(message,uid)}}"/>
+  <div class="message-info">
+    <div class="user-name">
+      {{channels.getDisplayName(message.uid)}}
+      <!--add time stamp to template so that user can see when last message was viewd-->
+      <span class="timestamp">{{message.timestamp | date:'short'}}</span>
+    </div>
+    <!--input the message body (text of the message from the model-->
+    <div class="message">
+      {{message.body}}
+    </div>
+  </div>
+</div>
+<form class="message-form" ng-submit="messageCtrl.sendMessage()">
+<div class="input-group">
+
+
+    <input type="text" class="form-control" ng-model="messagesCtrl.message" placeholder="KYtype a message..."/>
+    <span class="input-group-btn">
+    <button type="btn btn-default" type="submit">Send</button>
+    </span>
+  </div></form>
+
+
